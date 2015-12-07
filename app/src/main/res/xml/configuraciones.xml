@@ -3,7 +3,7 @@
     <ListPreference
         android:entries="@array/ListaOpciones"
         android:entryValues="@array/ListaConfiguraciones"
-        android:key="configuraciones"
-        android:summary="Configuraciones"
-        android:title="Configuraciones" />
+        android:key="modojuego"
+        android:summary="Cambia de modo de juego"
+        android:title="Modo de juego" />
 </PreferenceScreen>
