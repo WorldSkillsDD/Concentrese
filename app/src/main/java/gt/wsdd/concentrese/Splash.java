@@ -1,13 +1,14 @@
 package gt.wsdd.concentrese;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 
-public class Splash extends AppCompatActivity {
+public class Splash extends Activity {
 
-    private static final long timer = 5000L;
+    private static final long timer = 2000L;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,7 +16,7 @@ public class Splash extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
 
-        Thread contador = new Thread(){
+        Thread contador = new Thread() {
             @Override
             public void run() {
                 super.run();
@@ -23,8 +24,8 @@ public class Splash extends AppCompatActivity {
                     sleep(timer);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
-                }finally {
-                    Intent miIntento = new Intent (Splash.this,Inicio.class);
+                } finally {
+                    Intent miIntento = new Intent(Splash.this, Inicio.class);
                     startActivity(miIntento);
                 }
             }

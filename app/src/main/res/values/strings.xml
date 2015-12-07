@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Concentrese</string>
+    <string name="jugar">Jugar</string>
+    <string name="puntos">Punteos</string>
+    <string name="configuraciones">Configuraciones</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="ingresa_nickname">Ingresa tu nickname</string>
 </resources>
