@@ -64,7 +64,7 @@ public class Inicio extends Activity implements View.OnClickListener {
                 dNickname.dismiss();
                 break;
             case R.id.bConfiguraciones:
-                Intent miIntento = new Intent(Inicio.this,Configuraciones.class);
+                Intent miIntento = new Intent(Inicio.this,MainActivity.class);
                 startActivity(miIntento);
                 break;
         }

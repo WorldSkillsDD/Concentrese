@@ -5,4 +5,5 @@
     <string name="configuraciones">Configuraciones</string>
     <string name="aceptar">Aceptar</string>
     <string name="ingresa_nickname">Ingresa tu nickname</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>
