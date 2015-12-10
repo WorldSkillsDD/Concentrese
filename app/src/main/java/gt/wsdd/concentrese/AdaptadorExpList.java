@@ -79,9 +79,11 @@ public class AdaptadorExpList extends BaseExpandableListAdapter {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.exp_item, null);
         }
-        TextView tvItem = (TextView) convertView.findViewById(R.id.tvNickname);
-        Partida partida = (Partida)items.get(grupos.get(groupPosition)).get(childPosition);
-        tvItem.setText(partida.getNickname());
+        TextView tvNickname = (TextView) convertView.findViewById(R.id.tvNickname);
+        TextView tvPunteo = (TextView) convertView.findViewById(R.id.tvPunteo);
+        Partida partida = items.get(grupos.get(groupPosition)).get(childPosition);
+        tvNickname.setText(partida.getNickname());
+        tvPunteo.setText(String.valueOf(partida.getIntentos()));
         return convertView;
     }
 

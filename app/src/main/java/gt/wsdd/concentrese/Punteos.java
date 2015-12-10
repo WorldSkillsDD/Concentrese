@@ -64,10 +64,10 @@ public class Punteos extends AppCompatActivity {
     private void dataIntentos() {
 
         List<Partida> dataFacil = new ArrayList<Partida>();
-        Partida partida = new Partida("fulano","con Tiempo",1,"00:00",5);
-        Partida partida1 = new Partida("mengano","con Tiempo",1,"00:00",5);
-        Partida partida2 = new Partida("sutano","con Tiempo",1,"00:00",5);
-        Partida partida3 = new Partida("fulano 2","con Tiempo",1,"00:00",5);
+        Partida partida = new Partida("fulano","con Tiempo",1,"00:20",5);
+        Partida partida1 = new Partida("mengano","con Tiempo",1,"00:15",3);
+        Partida partida2 = new Partida("sutano","sin Tiempo",1,"00:10",4);
+        Partida partida3 = new Partida("fulano 2","con Tiempo",1,"00:08",2);
         dataFacil.add(partida);
         dataFacil.add(partida1);
         dataFacil.add(partida2);
