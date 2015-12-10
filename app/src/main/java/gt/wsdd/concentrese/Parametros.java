@@ -6,4 +6,6 @@ package gt.wsdd.concentrese;
 public class Parametros {
 
     public static final String NICKNAME_KEY = "nickname";
+    public static final String NOMBRE_BD = "ConcentreseBD";
+    public static final int VERSION_BD = 1;
 }

@@ -52,6 +52,7 @@ public class Inicio extends Activity implements View.OnClickListener {
         editorSP = sp.edit();
 
         findViewById(R.id.bConfiguraciones).setOnClickListener(this);
+        findViewById(R.id.bPunteos).setOnClickListener(this);
 
     }
 
@@ -64,8 +65,12 @@ public class Inicio extends Activity implements View.OnClickListener {
                 dNickname.dismiss();
                 break;
             case R.id.bConfiguraciones:
-                Intent miIntento = new Intent(Inicio.this,MainActivity.class);
+                Intent miIntento = new Intent(Inicio.this, MainActivity.class);
                 startActivity(miIntento);
+                break;
+            case R.id.bPunteos:
+                Intent intentoPunteos = new Intent(Inicio.this, Punteos.class);
+                startActivity(intentoPunteos);
                 break;
         }
     }
@@ -73,6 +78,6 @@ public class Inicio extends Activity implements View.OnClickListener {
     @Override
     protected void onResume() {
         super.onResume();
-        Toast.makeText(Inicio.this, PreferenceManager.getDefaultSharedPreferences(this).getString("modojuego",""), Toast.LENGTH_SHORT).show();
+        Toast.makeText(Inicio.this, PreferenceManager.getDefaultSharedPreferences(this).getString("modojuego", ""), Toast.LENGTH_SHORT).show();
     }
 }
