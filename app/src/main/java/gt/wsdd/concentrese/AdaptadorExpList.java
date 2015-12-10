@@ -18,11 +18,13 @@ public class AdaptadorExpList extends BaseExpandableListAdapter {
     private Context context;
     private List<String> grupos;
     private HashMap<String, List<Partida>> items;
+    String tipo;
 
-    public AdaptadorExpList(Context context, List<String> grupos, HashMap<String, List<Partida>> items) {
+    public AdaptadorExpList(Context context, List<String> grupos, HashMap<String, List<Partida>> items,String tipo) {
         this.context = context;
         this.grupos = grupos;
         this.items = items;
+        this.tipo = tipo;
     }
 
     @Override
@@ -83,7 +85,12 @@ public class AdaptadorExpList extends BaseExpandableListAdapter {
         TextView tvPunteo = (TextView) convertView.findViewById(R.id.tvPunteo);
         Partida partida = items.get(grupos.get(groupPosition)).get(childPosition);
         tvNickname.setText(partida.getNickname());
-        tvPunteo.setText(String.valueOf(partida.getIntentos()));
+        if(tipo.equals("intentos")){
+            tvPunteo.setText(String.valueOf(partida.getIntentos()));
+        }else{
+            tvPunteo.setText(String.valueOf(partida.getTiempo()));
+        }
+
         return convertView;
     }
 

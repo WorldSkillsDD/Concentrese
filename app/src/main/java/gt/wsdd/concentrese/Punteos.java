@@ -1,8 +1,10 @@
 package gt.wsdd.concentrese;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TabHost;
@@ -11,12 +13,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class Punteos extends AppCompatActivity {
+public class Punteos extends Activity {
 
-    private ExpandableListAdapter adapter;
-    ExpandableListView expIntentos;
+    private ExpandableListAdapter adapterIntentos,adapterTiempos;
+    ExpandableListView expIntentos,expTiempos;
     private List<String> grupos;
-    private HashMap<String, List<Partida>> itemsIntentos,itemsTiempo;
+    private HashMap<String, List<Partida>> itemsIntentos, itemsTiempo;
 
 
     TabHost tabHost;
@@ -24,6 +26,7 @@ public class Punteos extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.punteos);
         iniciarVars();
@@ -53,21 +56,24 @@ public class Punteos extends AppCompatActivity {
         itemsTiempo = new HashMap<String, List<Partida>>();
 
         expIntentos = (ExpandableListView) findViewById(R.id.expIntentos);
+        expTiempos = (ExpandableListView) findViewById(R.id.expTiempos);
 
         dataIntentos();
 
-        adapter = new AdaptadorExpList(this, grupos, itemsIntentos);
+        adapterIntentos = new AdaptadorExpList(this, grupos, itemsIntentos,"intentos");
+        adapterTiempos = new AdaptadorExpList(this, grupos, itemsIntentos,"tiempos");
 
-        expIntentos.setAdapter(adapter);
+        expIntentos.setAdapter(adapterIntentos);
+        expTiempos.setAdapter(adapterTiempos);
     }
 
     private void dataIntentos() {
 
         List<Partida> dataFacil = new ArrayList<Partida>();
-        Partida partida = new Partida("fulano","con Tiempo",1,"00:20",5);
-        Partida partida1 = new Partida("mengano","con Tiempo",1,"00:15",3);
-        Partida partida2 = new Partida("sutano","sin Tiempo",1,"00:10",4);
-        Partida partida3 = new Partida("fulano 2","con Tiempo",1,"00:08",2);
+        Partida partida = new Partida("fulano", "con Tiempo", 1, "00:20", 5);
+        Partida partida1 = new Partida("mengano", "con Tiempo", 1, "00:15", 3);
+        Partida partida2 = new Partida("sutano", "sin Tiempo", 1, "00:10", 4);
+        Partida partida3 = new Partida("fulano 2", "con Tiempo", 1, "00:08", 2);
         dataFacil.add(partida);
         dataFacil.add(partida1);
         dataFacil.add(partida2);
