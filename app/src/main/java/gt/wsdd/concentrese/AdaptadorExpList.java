@@ -1,6 +1,7 @@
 package gt.wsdd.concentrese;
 
 import android.content.Context;
+import android.provider.Telephony;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +17,9 @@ import java.util.List;
 public class AdaptadorExpList extends BaseExpandableListAdapter {
     private Context context;
     private List<String> grupos;
-    private HashMap<String, List<String>> items;
+    private HashMap<String, List<Partida>> items;
 
-    public AdaptadorExpList(Context context, List<String> grupos, HashMap<String, List<String>> items) {
+    public AdaptadorExpList(Context context, List<String> grupos, HashMap<String, List<Partida>> items) {
         this.context = context;
         this.grupos = grupos;
         this.items = items;
@@ -73,13 +74,14 @@ public class AdaptadorExpList extends BaseExpandableListAdapter {
 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        final String childText = (String) getChild(groupPosition, childPosition);
+        //final String childText = (String) getChild(groupPosition, childPosition);
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.exp_item, null);
         }
-        TextView tvItem = (TextView) convertView.findViewById(R.id.tvItem);
-        tvItem.setText(childText);
+        TextView tvItem = (TextView) convertView.findViewById(R.id.tvNickname);
+        Partida partida = (Partida)items.get(grupos.get(groupPosition)).get(childPosition);
+        tvItem.setText(partida.getNickname());
         return convertView;
     }
 

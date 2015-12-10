@@ -16,7 +16,7 @@ public class Punteos extends AppCompatActivity {
     private ExpandableListAdapter adapter;
     ExpandableListView expIntentos;
     private List<String> grupos;
-    private HashMap<String, List<String>> itemsIntentos,itemsTiempo;
+    private HashMap<String, List<Partida>> itemsIntentos,itemsTiempo;
 
 
     TabHost tabHost;
@@ -49,8 +49,8 @@ public class Punteos extends AppCompatActivity {
         grupos.add("Facíl");
         grupos.add("Normal");
         grupos.add("Difícil");
-        itemsIntentos = new HashMap<String, List<String>>();
-        itemsTiempo = new HashMap<String, List<String>>();
+        itemsIntentos = new HashMap<String, List<Partida>>();
+        itemsTiempo = new HashMap<String, List<Partida>>();
 
         expIntentos = (ExpandableListView) findViewById(R.id.expIntentos);
 
@@ -63,11 +63,15 @@ public class Punteos extends AppCompatActivity {
 
     private void dataIntentos() {
 
-        List<String> dataFacil = new ArrayList<String>();
-        dataFacil.add("facil");
-        dataFacil.add("facil");
-        dataFacil.add("facil");
-        dataFacil.add("facil");
+        List<Partida> dataFacil = new ArrayList<Partida>();
+        Partida partida = new Partida("fulano","con Tiempo",1,"00:00",5);
+        Partida partida1 = new Partida("mengano","con Tiempo",1,"00:00",5);
+        Partida partida2 = new Partida("sutano","con Tiempo",1,"00:00",5);
+        Partida partida3 = new Partida("fulano 2","con Tiempo",1,"00:00",5);
+        dataFacil.add(partida);
+        dataFacil.add(partida1);
+        dataFacil.add(partida2);
+        dataFacil.add(partida3);
 
         List<String> dataNormal = new ArrayList<String>();
         dataNormal.add("normal");
@@ -83,7 +87,7 @@ public class Punteos extends AppCompatActivity {
 
 
         itemsIntentos.put(grupos.get(0), dataFacil);
-        itemsIntentos.put(grupos.get(1), dataNormal);
-        itemsIntentos.put(grupos.get(2), dataDificil);
+        itemsIntentos.put(grupos.get(1), dataFacil);
+        itemsIntentos.put(grupos.get(2), dataFacil);
     }
 }
