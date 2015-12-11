@@ -1,9 +1,7 @@
 package gt.wsdd.concentrese;
 
 import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.view.Window;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
@@ -15,8 +13,8 @@ import java.util.List;
 
 public class Punteos extends Activity {
 
-    private ExpandableListAdapter adapterIntentos,adapterTiempos;
-    ExpandableListView expIntentos,expTiempos;
+    private ExpandableListAdapter adapterIntentos, adapterTiempos;
+    ExpandableListView expIntentos, expTiempos;
     private List<String> grupos;
     private HashMap<String, List<Partida>> itemsIntentos, itemsTiempo;
 
@@ -60,8 +58,8 @@ public class Punteos extends Activity {
 
         dataIntentos();
 
-        adapterIntentos = new AdaptadorExpList(this, grupos, itemsIntentos,"intentos");
-        adapterTiempos = new AdaptadorExpList(this, grupos, itemsIntentos,"tiempos");
+        adapterIntentos = new AdaptadorExpList(this, grupos, itemsIntentos, "intentos");
+        adapterTiempos = new AdaptadorExpList(this, grupos, itemsIntentos, "tiempos");
 
         expIntentos.setAdapter(adapterIntentos);
         expTiempos.setAdapter(adapterTiempos);
@@ -73,7 +71,7 @@ public class Punteos extends Activity {
         Partida partida = new Partida("fulano", "con Tiempo", 1, "00:20", 5);
         Partida partida1 = new Partida("mengano", "con Tiempo", 1, "00:15", 3);
         Partida partida2 = new Partida("sutano", "sin Tiempo", 1, "00:10", 4);
-        Partida partida3 = new Partida("fulano 2", "con Tiempo", 1, "00:08", 2);
+        Partida partida3 = new Partida("perenzejo", "con Tiempo", 1, "00:08", 2);
         dataFacil.add(partida);
         dataFacil.add(partida1);
         dataFacil.add(partida2);

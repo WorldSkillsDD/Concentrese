@@ -1,21 +1,15 @@
 package gt.wsdd.concentrese;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.Window;
-import android.view.animation.LinearInterpolator;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class Inicio extends Activity implements View.OnClickListener {
@@ -48,7 +42,7 @@ public class Inicio extends Activity implements View.OnClickListener {
     private void iniciarVars() {
         etNickname = (EditText) dNickname.findViewById(R.id.etNickname);
         dNickname.findViewById(R.id.bAceptar).setOnClickListener(this);
-        sp = getSharedPreferences("PreferenciasDD", Context.MODE_PRIVATE);
+        sp = getSharedPreferences(Parametros.NOMBRE_SP, Context.MODE_PRIVATE);
         editorSP = sp.edit();
 
         findViewById(R.id.bConfiguraciones).setOnClickListener(this);
@@ -65,7 +59,7 @@ public class Inicio extends Activity implements View.OnClickListener {
                 dNickname.dismiss();
                 break;
             case R.id.bConfiguraciones:
-                Intent miIntento = new Intent(Inicio.this, MainActivity.class);
+                Intent miIntento = new Intent(Inicio.this, Configuraciones.class);
                 startActivity(miIntento);
                 break;
             case R.id.bPunteos:
@@ -78,6 +72,6 @@ public class Inicio extends Activity implements View.OnClickListener {
     @Override
     protected void onResume() {
         super.onResume();
-        Toast.makeText(Inicio.this, PreferenceManager.getDefaultSharedPreferences(this).getString("modojuego", ""), Toast.LENGTH_SHORT).show();
+        Toast.makeText(Inicio.this, sp.getString(Parametros.MODO_JUEGO_KEY,""), Toast.LENGTH_SHORT).show();
     }
 }
