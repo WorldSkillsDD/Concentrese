@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
@@ -47,6 +46,7 @@ public class Inicio extends Activity implements View.OnClickListener {
 
         findViewById(R.id.bConfiguraciones).setOnClickListener(this);
         findViewById(R.id.bPunteos).setOnClickListener(this);
+        findViewById(R.id.bJugar).setOnClickListener(this);
 
     }
 
@@ -57,6 +57,12 @@ public class Inicio extends Activity implements View.OnClickListener {
                 editorSP.putString(Parametros.NICKNAME_KEY, etNickname.getText().toString().trim());
                 editorSP.commit();
                 dNickname.dismiss();
+                break;
+            case R.id.bJugar:
+                PartidaManager pm = new PartidaManager(this);
+                pm.abrir();
+                pm.insertarTemp();
+                pm.cerrar();
                 break;
             case R.id.bConfiguraciones:
                 Intent miIntento = new Intent(Inicio.this, Configuraciones.class);
@@ -72,6 +78,6 @@ public class Inicio extends Activity implements View.OnClickListener {
     @Override
     protected void onResume() {
         super.onResume();
-        Toast.makeText(Inicio.this, sp.getString(Parametros.MODO_JUEGO_KEY,""), Toast.LENGTH_SHORT).show();
+        Toast.makeText(Inicio.this, sp.getString(Parametros.MODO_JUEGO_KEY, ""), Toast.LENGTH_SHORT).show();
     }
 }

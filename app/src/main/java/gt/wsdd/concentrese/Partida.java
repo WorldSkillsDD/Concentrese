@@ -19,16 +19,6 @@ public class Partida {
         this.tiempo = tiempo;
         this.intentos = intentos;
     }
-
-    public Partida(int id, String nickname, String modoJuego, int nivel, String tiempo, int intentos) {
-        this.id = id;
-        this.nickname = nickname;
-        this.modoJuego = modoJuego;
-        this.nivel = nivel;
-        this.tiempo = tiempo;
-        this.intentos = intentos;
-    }
-
     public int getId() {
         return id;
     }

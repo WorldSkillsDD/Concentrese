@@ -56,4 +56,14 @@ public class PartidaManager {
     public void insertar(Partida partida) {
         bd.insert(NOMBRE_TABLA, null, generarValores(partida));
     }
+
+    public void insertarTemp() {
+        bd.insert(NOMBRE_TABLA, null, generarValores(new Partida("Brim", "conTiempo", 1, "00:30", 8)));
+        bd.insert(NOMBRE_TABLA, null, generarValores(new Partida("Brim2", "conTiempo", 1, "00:10", 4)));
+        bd.insert(NOMBRE_TABLA, null, generarValores(new Partida("Brim3", "conTiempo", 1, "00:05", 5)));
+        bd.insert(NOMBRE_TABLA, null, generarValores(new Partida("Brim4", "conTiempo", 1, "00:45", 2)));
+    }
+    public void obtenerPunteos(String modoJuego){
+
+    }
 }
