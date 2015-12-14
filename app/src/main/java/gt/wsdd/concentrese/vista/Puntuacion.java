@@ -2,6 +2,8 @@ package gt.wsdd.concentrese.vista;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Debug;
+import android.util.Log;
 import android.view.Window;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
@@ -13,18 +15,20 @@ import java.util.List;
 
 import gt.wsdd.concentrese.R;
 import gt.wsdd.concentrese.controlador.ExpandableList;
+import gt.wsdd.concentrese.controlador.PartidaManager;
 import gt.wsdd.concentrese.modelo.Partida;
 
-public class Puntuacion extends Activity {
+public class Puntuacion extends Activity implements TabHost.OnTabChangeListener {
 
     private ExpandableListAdapter adapterIntentos, adapterTiempos;
-    ExpandableListView expIntentos, expTiempos;
+    private ExpandableListView expIntentos, expTiempos;
     private List<String> grupos;
     private HashMap<String, List<Partida>> itemsIntentos, itemsTiempo;
 
 
-    TabHost tabHost;
-    TabHost.TabSpec specIntentos, specTiempo;
+    private TabHost tabHost;
+   private TabHost.TabSpec specIntentos, specTiempo;
+    String modoJuego = "intentos";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,10 +42,10 @@ public class Puntuacion extends Activity {
         tabHost = (TabHost) findViewById(R.id.tabHost);
         tabHost.setup();
 
+
         specIntentos = tabHost.newTabSpec("INTENTOS");
         specIntentos.setContent(R.id.specIntentos);
         specIntentos.setIndicator("INTENTOS");
-
 
         specTiempo = tabHost.newTabSpec("TIEMPO");
         specTiempo.setContent(R.id.specTiempo);
@@ -63,39 +67,30 @@ public class Puntuacion extends Activity {
         dataIntentos();
 
         adapterIntentos = new ExpandableList(this, grupos, itemsIntentos, "intentos");
-        adapterTiempos = new ExpandableList(this, grupos, itemsIntentos, "tiempos");
-
         expIntentos.setAdapter(adapterIntentos);
+
+        adapterTiempos = new ExpandableList(this, grupos, itemsIntentos, "tiempos");
         expTiempos.setAdapter(adapterTiempos);
+        tabHost.setOnTabChangedListener(this);
     }
 
     private void dataIntentos() {
-
-        List<Partida> dataFacil = new ArrayList<Partida>();
-        Partida partida = new Partida("fulano", "con Tiempo", 1, "00:20", 5);
-        Partida partida1 = new Partida("mengano", "con Tiempo", 1, "00:15", 3);
-        Partida partida2 = new Partida("sutano", "sin Tiempo", 1, "00:10", 4);
-        Partida partida3 = new Partida("perenzejo", "con Tiempo", 1, "00:08", 2);
-        dataFacil.add(partida);
-        dataFacil.add(partida1);
-        dataFacil.add(partida2);
-        dataFacil.add(partida3);
-
-        List<String> dataNormal = new ArrayList<String>();
-        dataNormal.add("normal");
-        dataNormal.add("normal");
-        dataNormal.add("normal");
-        dataNormal.add("normal");
-
-        List<String> dataDificil = new ArrayList<String>();
-        dataDificil.add("dificil");
-        dataDificil.add("dificil");
-        dataDificil.add("dificil");
-        dataDificil.add("dificil");
-
-
-        itemsIntentos.put(grupos.get(0), dataFacil);
-        itemsIntentos.put(grupos.get(1), dataFacil);
-        itemsIntentos.put(grupos.get(2), dataFacil);
+        PartidaManager pm = new PartidaManager(this);
+        pm.abrir();
+        itemsIntentos.put(grupos.get(0), pm.obtenerPunteos(modoJuego, 1));
+        itemsIntentos.put(grupos.get(1), pm.obtenerPunteos(modoJuego, 2));
+        itemsIntentos.put(grupos.get(2), pm.obtenerPunteos(modoJuego, 3));
+        pm.cerrar();
     }
+
+    @Override
+    public void onTabChanged(String tabId) {
+        if (tabId.equals("INTENTOS")) {
+            modoJuego = "intentos";
+        } else {
+            modoJuego = "conTiempo";
+        }
+        dataIntentos();
+    }
+
 }
