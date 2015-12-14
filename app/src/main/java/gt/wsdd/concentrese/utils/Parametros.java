@@ -13,4 +13,6 @@ public class Parametros {
     public static final String NOMBRE_SP = "DDSP";
     public static final String NICKNAME_KEY = "nickname";
     public static final String MODO_JUEGO_KEY = "modoJuego";
+
+    public static final String MODO_JUEGO_DEFAULT = "intentos";
 }

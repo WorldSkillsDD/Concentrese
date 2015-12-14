@@ -82,6 +82,6 @@ public class Inicio extends Activity implements View.OnClickListener {
     @Override
     protected void onResume() {
         super.onResume();
-        Toast.makeText(Inicio.this, sp.getString(Parametros.MODO_JUEGO_KEY, ""), Toast.LENGTH_SHORT).show();
+        Toast.makeText(Inicio.this, sp.getString(Parametros.MODO_JUEGO_KEY, "intentos"), Toast.LENGTH_SHORT).show();
     }
 }

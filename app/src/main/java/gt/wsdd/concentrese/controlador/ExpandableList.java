@@ -78,18 +78,20 @@ public class ExpandableList extends BaseExpandableListAdapter {
 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        //final String childText = (String) getChild(groupPosition, childPosition);
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.exp_item, null);
         }
+        TextView tvPos = (TextView) convertView.findViewById(R.id.tvPos);
         TextView tvNickname = (TextView) convertView.findViewById(R.id.tvNickname);
         TextView tvPunteo = (TextView) convertView.findViewById(R.id.tvPunteo);
+
         Partida partida = items.get(grupos.get(groupPosition)).get(childPosition);
+        tvPos.setText(String.valueOf(childPosition + 1));
         tvNickname.setText(partida.getNickname());
-        if(tipo.equals("intentos")){
+        if (tipo.equals("intentos")) {
             tvPunteo.setText(String.valueOf(partida.getIntentos()));
-        }else{
+        } else {
             tvPunteo.setText(String.valueOf(partida.getTiempo()));
         }
 
