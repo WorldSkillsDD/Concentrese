@@ -1,7 +1,6 @@
-package gt.wsdd.concentrese;
+package gt.wsdd.concentrese.controlador;
 
 import android.content.Context;
-import android.provider.Telephony;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,16 +10,19 @@ import android.widget.TextView;
 import java.util.HashMap;
 import java.util.List;
 
+import gt.wsdd.concentrese.R;
+import gt.wsdd.concentrese.modelo.Partida;
+
 /**
  * Created by WorldSkills on 09/12/2015.
  */
-public class AdaptadorExpList extends BaseExpandableListAdapter {
+public class ExpandableList extends BaseExpandableListAdapter {
     private Context context;
     private List<String> grupos;
     private HashMap<String, List<Partida>> items;
     String tipo;
 
-    public AdaptadorExpList(Context context, List<String> grupos, HashMap<String, List<Partida>> items,String tipo) {
+    public ExpandableList(Context context, List<String> grupos, HashMap<String, List<Partida>> items, String tipo) {
         this.context = context;
         this.grupos = grupos;
         this.items = items;

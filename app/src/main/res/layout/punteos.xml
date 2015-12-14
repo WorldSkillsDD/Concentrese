@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="gt.wsdd.concentrese.Punteos">
+    tools:context=".vista.Puntuacion">
 
     <TabHost
         android:id="@+id/tabHost"

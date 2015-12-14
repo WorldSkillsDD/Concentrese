@@ -1,4 +1,4 @@
-package gt.wsdd.concentrese;
+package gt.wsdd.concentrese.vista;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -11,7 +11,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class Punteos extends Activity {
+import gt.wsdd.concentrese.R;
+import gt.wsdd.concentrese.controlador.ExpandableList;
+import gt.wsdd.concentrese.modelo.Partida;
+
+public class Puntuacion extends Activity {
 
     private ExpandableListAdapter adapterIntentos, adapterTiempos;
     ExpandableListView expIntentos, expTiempos;
@@ -58,8 +62,8 @@ public class Punteos extends Activity {
 
         dataIntentos();
 
-        adapterIntentos = new AdaptadorExpList(this, grupos, itemsIntentos, "intentos");
-        adapterTiempos = new AdaptadorExpList(this, grupos, itemsIntentos, "tiempos");
+        adapterIntentos = new ExpandableList(this, grupos, itemsIntentos, "intentos");
+        adapterTiempos = new ExpandableList(this, grupos, itemsIntentos, "tiempos");
 
         expIntentos.setAdapter(adapterIntentos);
         expTiempos.setAdapter(adapterTiempos);

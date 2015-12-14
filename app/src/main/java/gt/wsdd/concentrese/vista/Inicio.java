@@ -1,4 +1,4 @@
-package gt.wsdd.concentrese;
+package gt.wsdd.concentrese.vista;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -10,6 +10,10 @@ import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import gt.wsdd.concentrese.utils.Parametros;
+import gt.wsdd.concentrese.R;
+import gt.wsdd.concentrese.controlador.PartidaManager;
 
 public class Inicio extends Activity implements View.OnClickListener {
 
@@ -65,11 +69,11 @@ public class Inicio extends Activity implements View.OnClickListener {
                 pm.cerrar();
                 break;
             case R.id.bConfiguraciones:
-                Intent miIntento = new Intent(Inicio.this, Configuraciones.class);
+                Intent miIntento = new Intent(Inicio.this, Configuracion.class);
                 startActivity(miIntento);
                 break;
             case R.id.bPunteos:
-                Intent intentoPunteos = new Intent(Inicio.this, Punteos.class);
+                Intent intentoPunteos = new Intent(Inicio.this, Puntuacion.class);
                 startActivity(intentoPunteos);
                 break;
         }

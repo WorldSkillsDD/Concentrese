@@ -1,4 +1,4 @@
-package gt.wsdd.concentrese;
+package gt.wsdd.concentrese.vista;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -6,7 +6,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-public class Configuraciones extends AppCompatActivity implements View.OnClickListener {
+import gt.wsdd.concentrese.R;
+import gt.wsdd.concentrese.utils.Parametros;
+
+public class Configuracion extends AppCompatActivity implements View.OnClickListener {
 
 
     private SharedPreferences sp;

@@ -1,8 +1,10 @@
-package gt.wsdd.concentrese;
+package gt.wsdd.concentrese.controlador;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+
+import gt.wsdd.concentrese.modelo.Partida;
 
 /**
  * Created by WorldSkills on 09/12/2015.

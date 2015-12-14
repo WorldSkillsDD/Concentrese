@@ -1,4 +1,4 @@
-package gt.wsdd.concentrese;
+package gt.wsdd.concentrese.modelo;
 
 /**
  * Created by WorldSkills on 09/12/2015.

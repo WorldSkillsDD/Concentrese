@@ -1,8 +1,10 @@
-package gt.wsdd.concentrese;
+package gt.wsdd.concentrese.controlador;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import gt.wsdd.concentrese.utils.Parametros;
 
 /**
  * Created by WorldSkills on 09/12/2015.

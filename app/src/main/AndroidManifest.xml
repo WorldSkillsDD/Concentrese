@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Splash"
+            android:name=".vista.Splash"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,13 +18,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Inicio"
+            android:name=".vista.Inicio"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Configuraciones"
+            android:name=".vista.Configuracion"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Punteos"></activity>
+        <activity android:name=".vista.Puntuacion"></activity>
     </application>
 
 </manifest>

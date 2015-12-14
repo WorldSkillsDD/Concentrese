@@ -1,4 +1,4 @@
-package gt.wsdd.concentrese;
+package gt.wsdd.concentrese.utils;
 
 /**
  * Created by WorldSkills on 07/12/2015.

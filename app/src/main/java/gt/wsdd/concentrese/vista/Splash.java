@@ -1,10 +1,11 @@
-package gt.wsdd.concentrese;
+package gt.wsdd.concentrese.vista;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
+
+import gt.wsdd.concentrese.R;
 
 public class Splash extends Activity {
 
