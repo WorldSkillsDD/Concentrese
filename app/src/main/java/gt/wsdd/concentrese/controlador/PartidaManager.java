@@ -88,15 +88,19 @@ public class PartidaManager {
         Log.i("BD", String.valueOf(cursor));
         if (cursor != null) {
             for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
-                Partida partidaTemp = new Partida(
-                        cursor.getString(0),
-                        cursor.getString(1),
-                        cursor.getInt(2),
-                        cursor.getString(3),
-                        cursor.getInt(4)
-                );
-                partidas.add(partidaTemp);
-                Log.i("BD", String.valueOf(partidas.size()));
+                Log.i("Cursor",String.valueOf(cursor.getPosition()));
+                if(cursor.getPosition() < 5){
+                    Partida partidaTemp = new Partida(
+                            cursor.getString(0),
+                            cursor.getString(1),
+                            cursor.getInt(2),
+                            cursor.getString(3),
+                            cursor.getInt(4)
+                    );
+                    partidas.add(partidaTemp);
+                }
+
+              //  Log.i("BD", String.valueOf(partidas.size()));
             }
         }
         return partidas;
