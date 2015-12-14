@@ -63,10 +63,7 @@ public class Inicio extends Activity implements View.OnClickListener {
                 dNickname.dismiss();
                 break;
             case R.id.bJugar:
-                PartidaManager pm = new PartidaManager(this);
-                pm.abrir();
-                pm.insertarTemp();
-                pm.cerrar();
+
                 break;
             case R.id.bConfiguraciones:
                 Intent miIntento = new Intent(Inicio.this, Configuracion.class);
